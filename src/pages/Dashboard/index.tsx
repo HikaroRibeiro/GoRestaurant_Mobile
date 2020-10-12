@@ -65,13 +65,13 @@ const Dashboard: React.FC = () => {
         params: {
           category_like: selectedCategory,
           name_like: searchValue,
-        }
+        },
       });
       setFoods(
         response.data.map((food: Food) => ({
           ...food,
           formattedPrice: formatValue(food.price),
-        }))
+        })),
       );
     }
     loadFoods();
@@ -87,7 +87,7 @@ const Dashboard: React.FC = () => {
   }, []);
 
   function handleSelectCategory(id: number): void {
-    if(selectedCategory === id) {
+    if (selectedCategory === id) {
       setSelectedCategory(undefined);
     } else {
       setSelectedCategory(id);
